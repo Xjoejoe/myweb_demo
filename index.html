@@ -2,9 +2,62 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
 </head>
 <body>
-	
+	<div id="header">
+		<div class="inner-header">
+			<div class="logo"><h1>Pets Raiser</h1></div>
+			<div class="nav-btn"><i class="fa fa-reorder"></i></div>
+			<nav>
+				<ul>
+					<li class="nav-item">
+						<a href="#">
+							<span class="nav-icon"><i class="fa fa-home"></i></span>
+							<span class="nav-title">首页</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="#">
+							<span class="nav-icon"><i class="fa fa-cube"></i></span>
+							<span class="nav-title">服务项目</span>
+							<span class="nav-icon-collapse"><i class="fa fa-plus"></i></span>
+						</a>
+						<ul class="nav-item-c-ul">
+							<li class="nav-item-c-li"><a href="#">宠物美容</a></li>
+							<li class="nav-item-c-li"><a href="#">宠物医疗</a></li>
+							<li class="nav-item-c-li"><a href="#">宠物寄养</a></li>
+							<li class="nav-item-c-li"><a href="#">宠物训练</a></li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a href="#">
+							<span class="nav-icon"><i class="fa fa-user-circle-o"></i></span>
+							<span class="nav-title">关于我们</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="#">
+							<span class="nav-icon"><i class="fa fa-book"></i></span>
+							<span class="nav-title">成功案例</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="#">
+							<span class="nav-icon"><i class="fa fa-phone"></i></span>
+							<span class="nav-title">联系我们</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<script>
+		var size = window.getComputedStyle(document.body,':after').getPropertyValue('content');
+		
+	</script>
 </body>
 </html>

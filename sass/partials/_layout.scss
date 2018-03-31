@@ -1,0 +1,67 @@
+@import "susyone";
+$total-columns:12;
+$column-width:5em;
+$gutter-width:1em;
+$grid-width:$gutter-width;
+$M:47em;
+$L:75em;
+body{
+	@include at-breakpoint($S) {
+    	&::after {
+    	    content: "Splus";
+    	    font-size: 0;
+    	}
+	}
+	@include at-breakpoint ($M) {
+	    &::after {
+	        content: "Mplus";
+	        font-size: 0;
+	    }
+	}
+	@include at-breakpoint ($L) {
+	    &::after {
+	        content: "Lplus";
+	        font-size: 0;
+	    }
+	}
+}
+[class^='inner']{
+	@include container;
+	@include susy-grid-background;
+}
+#header{
+	background-color: $color1;
+	height:3em;
+	.logo{
+		float:left;
+		font-size:2em;
+		color:$color3;
+		font-weight:bold;
+	}
+	.nav-btn{
+		float:right;
+		font-size:2em;
+		color:$color3;
+	}
+	nav{
+		position:absolute;
+		top:3em;
+		right:0px;
+		background-color: $color1;
+		height:60em;
+	}
+	.nav-item{
+		width:9em;
+		padding:1em;
+	}
+	a{
+		color:$color3;
+	}
+	.nav-item-c-ul{
+		display:none;
+	}
+	.nav-item-c-li{
+		padding:.6em;
+		padding-left:1.2em;
+	}
+}

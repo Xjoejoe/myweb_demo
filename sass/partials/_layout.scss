@@ -6,11 +6,11 @@ $grid-width:$gutter-width;
 $M:47em;
 $L:75em;
 body{
-	@include at-breakpoint($S) {
-    	&::after {
-    	    content: "Splus";
-    	    font-size: 0;
-    	}
+	width:100%;
+	overflow-x:hidden;
+	&::after {
+	    content: "Splus";
+	    font-size: 0;
 	}
 	@include at-breakpoint ($M) {
 	    &::after {
@@ -32,36 +32,103 @@ body{
 #header{
 	background-color: $color1;
 	height:3em;
+	@include at-breakpoint($L){
+		height:4em;
+	}
 	.logo{
 		float:left;
 		font-size:2em;
 		color:$color3;
 		font-weight:bold;
+		@include at-breakpoint($L) {
+			@include span-columns(4,12);
+			height:2em;
+			display:flex;
+			align-items:center;
+		}
 	}
 	.nav-btn{
 		float:right;
 		font-size:2em;
 		color:$color3;
+		@include at-breakpoint($L){
+			display:none;
+			@include span-columns(0,12);
+		}
 	}
 	nav{
 		position:absolute;
-		top:3em;
+		top:0em;
 		right:0px;
 		background-color: $color1;
-		height:60em;
+		height:100vh;
+		transition:transform .6s;
+		transform:translateX(9em);
+		z-index:999;
+		@include at-breakpoint($L){
+			transform:translateX(0em);
+			position:static;
+			height:4em;
+			@include span-columns(8 omega,12);
+		}
+	}
+	.nav-active{
+		transform:translateX(0);
+	}
+	.nav-item-ctn{
+		@include at-breakpoint($L) {
+			display:flex;
+			align-items:center;
+			justify-content:space-around;
+			height:4em;
+		}
+	}
+	.nav-icon{
+		@include at-breakpoint($L) {
+			display:none;
+		}
+	}
+	.nav-icon-collapse{
+		@include at-breakpoint($L) {
+			display:none;
+		}
 	}
 	.nav-item{
 		width:9em;
 		padding:1em;
+		background-color: $color1;
 	}
 	a{
 		color:$color3;
 	}
-	.nav-item-c-ul{
-		display:none;
+	.nav-collapse .nav-item-c-ul{
+		height:200px;
+		overflow-y:hidden;
+		@include at-breakpoint($L) {
+			position:relative;		
+		}
 	}
+	.nav-item-c-ul{
+		height:0;
+		transition:height 0.5s;
+	}
+	.uncollapse{}
 	.nav-item-c-li{
 		padding:.6em;
 		padding-left:1.2em;
+		@include at-breakpoint($L) {
+			padding-left:0;
+			transform:translateX(7em);
+		}
+	}
+	.header-cover{
+		width:100vw;
+		height:100vh;
+		background-color: #CCC;
+		opacity:0.8;
+		position:absolute;
+		top:3em;
+		left:0;
+		display:none;
 	}
 }

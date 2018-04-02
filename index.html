@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 	<title>Document</title>
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -13,14 +13,14 @@
 			<div class="logo"><h1>Pets Raiser</h1></div>
 			<div class="nav-btn"><i class="fa fa-reorder"></i></div>
 			<nav>
-				<ul>
+				<ul class="nav-item-ctn">
 					<li class="nav-item">
 						<a href="#">
 							<span class="nav-icon"><i class="fa fa-home"></i></span>
 							<span class="nav-title">首页</span>
 						</a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item nav-collapse">
 						<a href="#">
 							<span class="nav-icon"><i class="fa fa-cube"></i></span>
 							<span class="nav-title">服务项目</span>
@@ -54,10 +54,55 @@
 				</ul>
 			</nav>
 		</div>
+		<div class="header-cover"></div>
 	</div>
+	<script src="js/jquery-1.8.3.min.js"></script>
 	<script>
 		var size = window.getComputedStyle(document.body,':after').getPropertyValue('content');
-		
+		if(size.indexOf("Splus")!=-1){
+			var nav_flag = false;
+			$('.nav-btn').click(function(){
+				if(!nav_flag){
+					$("nav").addClass('nav-active');
+					$('.header-cover').show();
+					nav_flag = true;
+				}
+			});
+			$('.header-cover').click(function(){
+				$('nav').removeClass('nav-active');
+				$('.header-cover').hide();
+				nav_flag = false;
+			});
+			$('.header-cover').on('touchmove',function(e){e.preventDefault()});
+			$('.nav-item').click(function(){
+				if($(this).attr('class').indexOf('nav-collapse')!=-1){
+					$(this).removeClass('nav-collapse').addClass('uncollapse');
+					$(this).find('.fa').removeClass('fa-plus').addClass('fa-minus');
+					var li_height = $(this).find('.nav-item-c-li').outerHeight();
+					var length = $(this).find('.nav-item-c-li').length;
+					var total_height = li_height*length+'px';
+					console.log(li_height);
+					$(this).find('.nav-item-c-ul').css({"height":total_height});
+				}
+				else if($(this).attr('class').indexOf('uncollapse')!=-1){
+					$(this).removeClass('uncollapse').addClass('nav-collapse');
+					$(this).find('.fa').removeClass('fa-minus').addClass('fa-plus');
+					$(this).find('.nav-item-c-ul').css({"height":'0px'});
+				}
+			});
+		}
+		function delay_fn(starter,fn){
+			var current_time = new Date();
+			var timer = setInterval(function(){
+				current_time = new Date();
+				if(current_time-starter>300){
+					fn();
+					clearInterval(timer);
+				}else{
+					return;
+				}
+			},100);
+		}
 	</script>
 </body>
 </html>

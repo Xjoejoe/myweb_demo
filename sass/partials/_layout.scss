@@ -67,8 +67,9 @@ body{
 		z-index:999;
 		@include at-breakpoint($L){
 			transform:translateX(0em);
-			position:static;
+			position:relative;
 			height:4em;
+			text-align:center;
 			@include span-columns(8 omega,12);
 		}
 	}
@@ -101,24 +102,38 @@ body{
 	a{
 		color:$color3;
 	}
+	.nav-collapse{
+		position:relative;
+	}
 	.nav-collapse .nav-item-c-ul{
-		height:200px;
+		height:0px;
 		overflow-y:hidden;
 		@include at-breakpoint($L) {
-			position:relative;		
+			position:absolute;
+			top:3.2em;
+			left:0em;
+			overflow-x:hidden;
 		}
 	}
 	.nav-item-c-ul{
 		height:0;
 		transition:height 0.5s;
+		@include at-breakpoint($L) {
+			transition:transform 0.5s;	
+		}
 	}
-	.uncollapse{}
+	.uncollapse{
+
+	}
 	.nav-item-c-li{
 		padding:.6em;
 		padding-left:1.2em;
 		@include at-breakpoint($L) {
-			padding-left:0;
-			transform:translateX(7em);
+			width:9em;
+			padding:0.8em;
+			background-color: $color1;
+			transform:translateX(9em);
+			transition:transform .2s;
 		}
 	}
 	.header-cover{

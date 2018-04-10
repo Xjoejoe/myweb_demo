@@ -60,6 +60,72 @@
 	<div class="banner">
 		<div id="banner_img_ctn"></div>
 	</div>
+	<div class="news">
+		<div class="inner-news">
+			<div class="news-section-title">新闻栏目</div>
+			<div class="news-grid">
+				<a href="#">
+					<span class="news-thumb"><img src="images/dog1.jpg" alt=""></span>
+					<span class="news-title">新闻标题</span>
+					<span class="news-details">
+						测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试
+					</span>
+				</a>
+			</div>
+			<div class="news-grid">
+				<a href="#">
+					<span class="news-thumb"><img src="images/dog2.jpg" alt=""></span>
+					<span class="news-title">新闻标题</span>
+					<span class="news-details">
+						测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试
+					</span>
+				</a>
+			</div>
+			<div class="news-grid">
+				<a href="#">
+					<span class="news-thumb"><img src="images/dog1.jpg" alt=""></span>
+					<span class="news-title">新闻标题</span>
+					<span class="news-details">
+						测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试
+					</span>
+				</a>
+			</div>
+			<div class="news-grid">
+				<a href="#">
+					<span class="news-thumb"><img src="images/dog2.jpg" alt=""></span>
+					<span class="news-title">新闻标题</span>
+					<span class="news-details">
+						测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试
+					</span>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="service">
+		<div class="inner-service">
+			<div class="service-section-title">服务内容</div>
+			<div class="service-grid">
+				<a href="#">
+					宠物医疗
+				</a>
+			</div>
+			<div class="service-grid">
+				<a href="#">
+					宠物美容
+				</a>
+			</div>
+			<div class="service-grid">
+				<a href="#">
+					宠物寄养
+				</a>
+			</div>
+			<div class="service-grid">
+				<a href="#">
+					宠物训练
+				</a>
+			</div>
+		</div>
+	</div>
 	<script src="js/jquery-1.8.3.min.js"></script>
 	<script src="js/banner_slider.js"></script>
 	<script>
@@ -79,6 +145,7 @@
 				nav_flag = false;
 			});
 			$('.header-cover').on('touchmove',function(e){e.preventDefault()});
+			$('nav').on('touchmove',function(e){e.preventDefault()});
 			$('.nav-item').click(function(){
 				if($(this).attr('class').indexOf('nav-collapse')!=-1){
 					$(this).removeClass('nav-collapse').addClass('uncollapse');
